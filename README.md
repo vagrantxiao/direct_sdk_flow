@@ -48,8 +48,10 @@ make all
 ![](figures/dfx1_res.png)
 
 
+11. As Vitis will download the bitstream by default before execute host binary, we need to disenable this feagure as below.
 
+![](figures/run_config.png)
 
-
+![](figures/uncheck.png)
 
 
