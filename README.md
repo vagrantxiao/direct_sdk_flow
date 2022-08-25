@@ -25,4 +25,7 @@ make all
 
 ![](figures/CPP_PRJ.png)
 
+6. Copy all the software source files from [sdk_src/*](sdk_src) to the project as below.
+
+![](figures/copy_src.png)
 
