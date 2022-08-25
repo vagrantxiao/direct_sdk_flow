@@ -39,3 +39,17 @@ make all
 
 ![](figures/uart0.png)
 
+9. Now, you can run the application with version 1.
+
+![](figures/run.png)
+
+10. You should see the results in Vitis Serial Terminal.
+
+![](figures/dfx1_res.png)
+
+
+
+
+
+
+
