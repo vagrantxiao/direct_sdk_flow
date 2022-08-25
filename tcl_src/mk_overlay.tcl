@@ -17,6 +17,7 @@ report_timing_summary > ./project_1/overlay_timing.rpt
 
 # write overlay bitstream
 write_bitstream  -force ./project_1/overlay.bit
+write_bitstream  -force -cell design_1_i/axis_ip_top_0/inst ./project_1/dfx1.bit
 
 # write xsa platfrom for Vitis project
 write_hw_platform -fixed -include_bit -force -file ./project_1/design_1_wrapper.xsa
