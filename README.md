@@ -29,6 +29,8 @@ make all
 
 ![](figures/copy_src.png)
 
-7. If you do not see `Vitis Terminal` in your Vitis GUI window, you can click 
+7. If you do not see `Vitis Terminal` in your Vitis GUI window, you can click `Window->Show View->
 
 ![](figures/show_view.png)
+
+![](figures/vitis_terminal.png)
