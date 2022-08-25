@@ -29,8 +29,13 @@ make all
 
 ![](figures/copy_src.png)
 
-7. If you do not see `Vitis Terminal` in your Vitis GUI window, you can click `Window->Show View->
+7. If you do not see `Vitis Terminal` in your Vitis GUI window, you can click `Window->Show View->Vitis Serial Terminal`.
 
 ![](figures/show_view.png)
 
 ![](figures/vitis_terminal.png)
+
+8. Connect your ZCU102 UART0 to the Vitis Serial Terminal.
+
+![](figures/uart0.png)
+
