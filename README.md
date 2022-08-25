@@ -54,4 +54,8 @@ make all
 
 ![](figures/uncheck.png)
 
+12. In the shell terminal, type `make download2` and to back to the Vitis GUI to launch the project again. You should see this time, the input data are increased by 5.
+
+![](figures/dfx2_res.png)
+
 
