@@ -36,8 +36,8 @@
 proc checkRequiredFiles { origin_dir} {
   set status true
   set files [list \
- "[file normalize "$origin_dir/../verilog_src/axis_ip_empty.v"]"\
- "[file normalize "$origin_dir/../xdc_src/pblock.xdc"]"\
+ "[file normalize "$origin_dir/verilog_src/axis_ip_empty.v"]"\
+ "[file normalize "$origin_dir/xdc_src/pblock.xdc"]"\
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -155,7 +155,7 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 # Set 'sources_1' fileset object
 set obj [get_filesets sources_1]
 set files [list \
- [file normalize "${origin_dir}/../verilog_src/axis_ip_empty.v"] \
+ [file normalize "${origin_dir}/verilog_src/axis_ip_empty.v"] \
 ]
 add_files -norecurse -fileset $obj $files
 
@@ -179,9 +179,9 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/../xdc_src/pblock.xdc"]"
+set file "[file normalize "$origin_dir/xdc_src/pblock.xdc"]"
 set file_added [add_files -norecurse -fileset $obj [list $file]]
-set file "$origin_dir/../xdc_src/pblock.xdc"
+set file "$origin_dir/xdc_src/pblock.xdc"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property -name "file_type" -value "XDC" -objects $file_obj
@@ -214,7 +214,7 @@ set obj [get_filesets utils_1]
 
 # Adding sources referenced in BDs, if not already added
 if { [get_files axis_ip_empty.v] == "" } {
-  import_files -quiet -fileset sources_1 /home/ylxiao/ws_211/direct_sdk_flow/verilog_src/axis_ip_empty.v
+  import_files -quiet -fileset sources_1 ./verilog_src/axis_ip_empty.v
 }
 
 
@@ -1481,3 +1481,16 @@ move_dashboard_gadget -name {drc_1} -row 2 -col 0
 move_dashboard_gadget -name {timing_1} -row 0 -col 1
 move_dashboard_gadget -name {utilization_2} -row 1 -col 1
 move_dashboard_gadget -name {methodology_1} -row 2 -col 1
+
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+write_checkpoint -force project_1/overlay_syn.dcp
+
+
+
+
+
+
+
+
