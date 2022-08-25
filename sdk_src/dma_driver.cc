@@ -2,8 +2,6 @@
 #include "dma_driver.h"
 
 #include "xtime_l.h"
-#include "out.h"
-#include "expected.h"
 
 
 
@@ -232,8 +230,9 @@ int dma_inst::WR2TxBuffer()
 	TxPacket = (u32 *) Packet;
 
 	XTime_GetTime(&Start);
-	for(i = 0; i < 160000; i ++){
-			TxPacket[i] = (u32)Input_data[i];
+	TxPacket[0] = 16384;
+	for(i = 1; i < 16384; i ++){
+			TxPacket[i] = i;
 	}
 
 	/* Flush the SrcBuffer before the DMA transfer, in case the Data Cache
@@ -410,10 +409,10 @@ int dma_inst::RecvWait()
 int dma_inst::CheckData(void)
 {
 	u32 *RxPacket;
+	u32 *TxPacket;
 	int i = 0;
-	int j = 0;
 	RxPacket = (u32 *) rx_buffer_base;
-	RxPacket+=4;
+	TxPacket = (u32 *) Packet;
 	/* Invalidate the DestBuffer before receiving the data, in case the
 	 * Data Cache is enabled
 	 */
@@ -423,14 +422,16 @@ int dma_inst::CheckData(void)
 #endif
 
 	int cnt = 0;
-	for(i = 0; i < 2000; i++) {
-		if (RxPacket[4*i] == exp_data[i]){
-			cnt++;
-		}
+	for(i = 0; i < 16384; i++) {
+		if(TxPacket[i] != RxPacket[i]){ cnt++; }
+		printf("sent[%d]=%d, received[%d]=%d\n",
+				i,
+				TxPacket[i],
+				i,
+				RxPacket[i]);
 
 	}
-	printf("We should get 1878 / 2000 correct!\r\n");
-	printf("%d / 2000 correct!\n", cnt);
+	printf("%d / 16384 correct!\n", cnt);
 
 
 

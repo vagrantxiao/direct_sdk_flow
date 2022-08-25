@@ -6,8 +6,6 @@
 // ===========================================================
 
 `timescale 1 ns / 1 ps 
-
-
 module axis_ip_top (
   input         clk,
   input         reset,
@@ -16,10 +14,10 @@ module axis_ip_top (
   output        rdy_in,
   output [31:0] dout,
   output        vld_out,
-  input         rdy_out
+  input         rdy_out,
+  output [3:0]  keep_out,
+  output        last_out
 );
-
-
 
 
 endmodule
