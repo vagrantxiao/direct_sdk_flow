@@ -230,8 +230,8 @@ int dma_inst::WR2TxBuffer()
 	TxPacket = (u32 *) Packet;
 
 	XTime_GetTime(&Start);
-	TxPacket[0] = 16384;
-	for(i = 1; i < 16384; i ++){
+	TxPacket[0] = 1024;
+	for(i = 1; i < 1024; i ++){
 			TxPacket[i] = i;
 	}
 
@@ -422,7 +422,7 @@ int dma_inst::CheckData(void)
 #endif
 
 	int cnt = 0;
-	for(i = 0; i < 16384; i++) {
+	for(i = 0; i < 1024; i++) {
 		if(TxPacket[i] != RxPacket[i]){ cnt++; }
 		printf("sent[%d]=%d, received[%d]=%d\n",
 				i,
@@ -431,7 +431,7 @@ int dma_inst::CheckData(void)
 				RxPacket[i]);
 
 	}
-	printf("%d / 16384 correct!\n", cnt);
+	printf("%d / 1024 correct!\n", cnt);
 
 
 

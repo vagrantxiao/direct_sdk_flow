@@ -5,6 +5,12 @@ endif
 #all:./project_1/design_1_wrapper.xsa
 all:./project_1/dfx2.bit
 
+download1:./tcl_src/download1.tcl ./project_1/dfx_abs.dcp
+	vivado -mode batch -source $<
+
+download2:./tcl_src/download2.tcl ./project_1/dfx2.dcp
+	vivado -mode batch -source $<
+
 ./project_1/dfx2.bit:./tcl_src/impl_page_v2.tcl ./project_1/dfx_abs.dcp ./project_1/dfx2.dcp
 	vivado -mode batch -source $<
 
