@@ -17,4 +17,12 @@ make all
 
 ![](figures/choose_xsa.png)
 
+4. Specify a project name.
+
+![](figures/prj_name.png)
+
+5. Click `next` until the project type. Choose C++ empty project.
+
+![](figures/CPP_PRJ.png)
+
 
